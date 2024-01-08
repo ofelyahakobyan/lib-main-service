@@ -5,11 +5,13 @@ import users from './users';
 import wishes from './wishes';
 import authors from './authors';
 import orders from './orders';
+//TODO return unused code
 import TestController from "../controllers/testController";
 import uploader from '../middlewares/dataUploader';
 
 const router = express.Router();
 
+//TODO This router should return the status of all services and DB
 router.get('/', (req, res) => {
   res.json({
     status: 'success',

@@ -11,6 +11,7 @@ const router = express.Router();
 const {registration, login, passwordForgot, passwordReset, edit} = users;
 
 /* GET home page. */
+//TODO Add validation for input data
 router.get('/', UsersController.list);
 router.post('/signup', validate(registration),  UsersController.registration);
 router.post('/login', validate(login),  UsersController.login);

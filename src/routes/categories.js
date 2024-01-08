@@ -12,7 +12,9 @@ router.get('/', validate(list), CategoriesController.list);
 router.post('/', validate(add), CategoriesController.add);
 router.patch('/:categoryId', validate(edit), CategoriesController.edit);
 router.delete('/:categoryId', validate(del), CategoriesController.delete);
+//TODO Add validation for input data (categoryId must be integer)
 router.get('/:categoryId', CategoriesController.list);
+//TODO Add validation for input data (categoryId must be integer)
 router.get('/single/:categoryId', CategoriesController.single);
 
 
