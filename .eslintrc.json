@@ -4,7 +4,6 @@
     "commonjs": true,
     "es6": true
   },
-  "parser": "babel-eslint",
   "ecmaFeatures": {
     "modules": true,
     "arrowFunctions": true,
@@ -18,7 +17,8 @@
     "SharedArrayBuffer": "readonly"
   },
   "parserOptions": {
-    "ecmaVersion": 2018
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
   "rules": {
     "radix": [

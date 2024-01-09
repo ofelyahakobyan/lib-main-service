@@ -5,35 +5,25 @@ import http from 'http';
 import errorHandler from './middlewares/errorHandler';
 import cors from './middlewares/cors';
 import router from './routes';
-// import  "./puppeteer";
 
+// import { Queue, Worker } from 'bullmq';
 // import { Emitter } from "@socket.io/redis-emitter";
 // import {createAdapter} from '@socket.io/redis-adapter';
 // import {createClient} from 'redis';
 // import IORedis from 'ioredis';
 
-
 // import {Server} from 'socket.io';
-
-import { Queue } from 'bullmq';
-import { Worker } from 'bullmq';
 
 // const connection = new IORedis('redis://redis_db:6379', {maxRetriesPerRequest: 0});
 //
 // const myQueue = new Queue('recipes', {connection});
-
-
 
 // async function addJobs() {
 //   await myQueue.add('pizza', { cheese: 'chedder', vegies: 'pepper' }, { removeOnComplete: true, removeOnFail: true },);
 //   await myQueue.add('soup', { meat: 'beaf' });
 // }
 
-  // await addJobs();
-
-
-
-
+// await addJobs();
 
 const app = express();
 const server = http.createServer(app);
@@ -47,15 +37,15 @@ const server = http.createServer(app);
 //       credentials: true,
 //     },
 //   });
-    // const pubClient =  createClient({ url: 'redis://redis_db:6379' });
-    // const subClient = pubClient.duplicate();
+// const pubClient =  createClient({ url: 'redis://redis_db:6379' });
+// const subClient = pubClient.duplicate();
 
-    // io.adapter(createAdapter(pubClient, subClient));
-    //
-    // const emitter = new Emitter(pubClient);
-    // Redis client for handling events
-    // await pubClient.connect();
-    // const emitter = new Emitter(pubClient);
+// io.adapter(createAdapter(pubClient, subClient));
+//
+// const emitter = new Emitter(pubClient);
+// Redis client for handling events
+// await pubClient.connect();
+// const emitter = new Emitter(pubClient);
 //  await pubClient.connect();
 // io.on('connect', async (client) => {
 //    client.emit('greeting', { message: 'TEST MESSAGE' });
@@ -73,8 +63,6 @@ const server = http.createServer(app);
 //   emitter.emit('ev', 'EMITTER');
 // }, 15000);
 // Handle messages received on the 'news' channel
-
-
 
 // await pubClient.publish('news', (m) => {
 //   console.log("m");
@@ -104,14 +92,13 @@ const server = http.createServer(app);
 //   pubClient.publish('pub', 'PUBLISHED');
 // }, 10000);
 
-
-const {BASE_URL} = process.env;
+const { BASE_URL } = process.env;
 console.log(BASE_URL);
 
 app.use(cors);
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.urlencoded({extended: true, limit: '50mb'}));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(express.static(path.resolve('src/public')));
 
 app.use(BASE_URL, router);
@@ -121,7 +108,7 @@ app.use(errorHandler);
 
 const port = +process.env.MAIN_PORT || 4000;
 
-server.listen(port, '0.0.0.0',() => console.log(`Listening on port ${port}`));
+server.listen(port, '0.0.0.0', () => console.log(`Listening on port ${port}`));
 
 // let worker ;
 
